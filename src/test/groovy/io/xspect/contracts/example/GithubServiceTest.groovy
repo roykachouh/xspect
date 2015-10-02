@@ -15,12 +15,13 @@ class GithubServiceTest extends Specification {
   @Rule
   RecorderRule recorder = new RecorderRule(configuration)
 
-  def githubService
+  def githubService = new GithubService()
 
-  @Betamax(tape = 'git-commits-success', mode = TapeMode.WRITE_ONLY)
+  @Betamax(tape = 'git-commits-success', mode = TapeMode.READ_WRITE)
   void 'retrieve git commits for this project'() {
+    def commits
     when:
-      def commits = githubService.commits()
+      commits = githubService.commits()
     then:
       assert commits
   }
