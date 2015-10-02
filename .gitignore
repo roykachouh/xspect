@@ -2,3 +2,9 @@
 # Package Files #
 *.jar
 .gradle/
+build/
+lib/
+littleproxy_cert
+littleproxy_keystore.jks
+log.txt
+
