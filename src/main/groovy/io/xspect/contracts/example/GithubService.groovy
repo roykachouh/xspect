@@ -9,10 +9,8 @@ class GithubService {
   RestTemplate restTemplate
 
   def commits() {
-    Map<String, String> parameters = new HashMap<>();
+    def params = [state: 'closed']
 
-    parameters.put("state", "closed");
-
-    restTemplate.getForObject(commitEndpoint, String.class,parameters);
+    restTemplate.getForObject(commitEndpoint, String.class, params);
   }
 }
